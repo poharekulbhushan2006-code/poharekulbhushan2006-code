@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="300">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050811"/>
+      <stop offset="45%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#03050c"/>
+    </linearGradient>
+
+    <!-- Animated Shimmer Gradient for Main Name -->
+    <linearGradient id="shimmerName" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="25%" stop-color="#818cf8"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="75%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="100%;200%;100%" dur="7s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/>
+      <feGaussianBlur stdDeviation="14" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Perspective Grid Pattern -->
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" opacity="0.5"/>
+    </pattern>
+
+    <!-- Keyframe Animations -->
+    <style>
+      @keyframes rotateRingCW {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes rotateRingCCW {
+        0% { transform: rotate(360deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes pulseRadarWave {
+        0% { r: 4px; opacity: 1; }
+        100% { r: 18px; opacity: 0; }
+      }
+      @keyframes particleFloat {
+        0% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+        50% { transform: translateY(-14px) translateX(10px); opacity: 0.9; }
+        100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+      }
+      @keyframes borderGlowPulse {
+        0%, 100% { stroke-dashoffset: 0; }
+        50% { stroke-dashoffset: 600; }
+      }
+      .ring-cw {
+        transform-origin: 820px 150px;
+        animation: rotateRingCW 18s linear infinite;
+      }
+      .ring-ccw {
+        transform-origin: 820px 150px;
+        animation: rotateRingCCW 14s linear infinite;
+      }
+      .radar-wave {
+        animation: pulseRadarWave 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        transform-origin: 52px 38px;
+      }
+      .p1 { animation: particleFloat 4.5s ease-in-out infinite; }
+      .p2 { animation: particleFloat 6.2s ease-in-out infinite 1.2s; }
+      .p3 { animation: particleFloat 5.1s ease-in-out infinite 2.4s; }
+      .border-pulse {
+        stroke-dasharray: 80 200;
+        animation: borderGlowPulse 20s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Shell -->
+  <rect x="2" y="2" width="956" height="296" rx="18" fill="url(#bgGrad)"/>
+  <rect x="2" y="2" width="956" height="296" rx="18" fill="url(#gridPattern)"/>
+
+  <!-- Border Glowing Shimmer -->
+  <rect x="2" y="2" width="956" height="296" rx="18" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <rect x="2" y="2" width="956" height="296" rx="18" fill="none" stroke="url(#shimmerName)" stroke-width="2" class="border-pulse" filter="url(#softGlow)"/>
+
+  <!-- Ambient Light Halos -->
+  <circle cx="220" cy="110" r="140" fill="#00f0ff" opacity="0.05" filter="url(#neonGlow)"/>
+  <circle cx="820" cy="150" r="170" fill="#a855f7" opacity="0.08" filter="url(#neonGlow)"/>
+
+  <!-- Top Status Pill -->
+  <g transform="translate(48, 26)">
+    <rect x="0" y="0" width="310" height="28" rx="14" fill="#0b1329" stroke="#1e293b" stroke-width="1"/>
+    <!-- Live Green Radar Pulse -->
+    <circle cx="16" cy="14" r="4.5" fill="#10b981"/>
+    <circle cx="16" cy="14" r="4.5" fill="none" stroke="#10b981" stroke-width="1.5" class="radar-wave"/>
+    <text x="32" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#34d399">ACTIVE BUILDER &amp; SYSTEMS ARCHITECT</text>
+  </g>
+
+  <!-- Top GitHub Handle Tag -->
+  <g transform="translate(370, 26)">
+    <rect x="0" y="0" width="240" height="28" rx="14" fill="#0b1329" stroke="#334155" stroke-width="1"/>
+    <text x="14" y="18" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8">🐙 @poharekulbhushan2006-code</text>
+  </g>
+
+  <!-- Main Hero Titles -->
+  <g transform="translate(48, 102)">
+    <!-- Subtitle Pre-Header -->
+    <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#00f0ff" letter-spacing="2">
+      HELLO WORLD, I AM
+    </text>
+
+    <!-- Large Name with Shimmer Gradient -->
+    <text x="0" y="46" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="44" font-weight="800" fill="url(#shimmerName)" filter="url(#softGlow)" letter-spacing="-0.5">
+      Kulbhushan Pohare
+    </text>
+
+    <!-- Core Engineering Tagline -->
+    <text x="0" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="500" fill="#94a3b8">
+      Low-Level Systems • Microkernels • Security Architecture • Full-Stack Solutions
+    </text>
+    <text x="0" y="106" font-family="'JetBrains Mono', monospace" font-size="12" fill="#64748b">
+      From IA-32 Bare-Metal &amp; Capability Spaces to Distributed Fintech Ledgers
+    </text>
+  </g>
+
+  <!-- Bottom Interactive Focus Area Badges -->
+  <g transform="translate(48, 240)">
+    <!-- Badge 1: Microkernels -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="168" height="30" rx="6" fill="#0f172a" stroke="#00f0ff" stroke-width="1"/>
+      <text x="12" y="19" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" fill="#38bdf8">🛡️ Nexus OS Microkernel</text>
+    </g>
+    <!-- Badge 2: Fintech & Decentralized -->
+    <g transform="translate(180, 0)">
+      <rect x="0" y="0" width="168" height="30" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text x="12" y="19" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" fill="#34d399">⛓️ ShramLedger Platform</text>
+    </g>
+    <!-- Badge 3: Search Engine -->
+    <g transform="translate(360, 0)">
+      <rect x="0" y="0" width="168" height="30" rx="6" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
+      <text x="12" y="19" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" fill="#c084fc">🔍 Prism Search Engine</text>
+    </g>
+    <!-- Badge 4: Security -->
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="168" height="30" rx="6" fill="#0f172a" stroke="#f43f5e" stroke-width="1"/>
+      <text x="12" y="19" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" fill="#fb7185">🔐 Antra Security System</text>
+    </g>
+  </g>
+
+  <!-- Right Holographic Futuristic Radar & Core Animation -->
+  <g>
+    <!-- Outer Orbit Ring 1 -->
+    <circle cx="820" cy="150" r="92" fill="none" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <circle cx="820" cy="150" r="92" fill="none" stroke="#00f0ff" stroke-width="2.2" stroke-dasharray="25 65" class="ring-cw" filter="url(#softGlow)"/>
+
+    <!-- Middle Orbit Ring 2 -->
+    <circle cx="820" cy="150" r="68" fill="none" stroke="#334155" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <circle cx="820" cy="150" r="68" fill="none" stroke="#c084fc" stroke-width="2" stroke-dasharray="35 45" class="ring-ccw"/>
+
+    <!-- Orbiting Energy Orbs -->
+    <g class="ring-cw">
+      <circle cx="820" cy="58" r="5.5" fill="#00f0ff" filter="url(#softGlow)"/>
+      <circle cx="912" cy="150" r="4.5" fill="#f43f5e"/>
+      <circle cx="820" cy="242" r="5" fill="#34d399"/>
+      <circle cx="728" cy="150" r="4.5" fill="#a855f7"/>
+    </g>
+
+    <!-- Central Hexagonal Core -->
+    <polygon points="820,105 858,127 858,173 820,195 782,173 782,127" fill="#0b1329" stroke="url(#shimmerName)" stroke-width="3" filter="url(#neonGlow)"/>
+    
+    <!-- Central Monogram & Core Identity -->
+    <text x="820" y="145" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" fill="#00f0ff" text-anchor="middle">KERNEL</text>
+    <text x="820" y="165" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#ffffff" text-anchor="middle">&lt;KP/&gt;</text>
+    <text x="820" y="180" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="bold" fill="#c084fc" text-anchor="middle">DEV 2026</text>
+  </g>
+
+  <!-- Floating Stardust Particles -->
+  <circle cx="100" cy="70" r="1.5" fill="#00f0ff" class="p1"/>
+  <circle cx="280" cy="200" r="2" fill="#c084fc" class="p2"/>
+  <circle cx="670" cy="90" r="1.5" fill="#34d399" class="p3"/>
+  <circle cx="710" cy="230" r="2" fill="#38bdf8" class="p1"/>
+</svg>
